@@ -1,10 +1,9 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 	def should_be_button_add_to_basket(self):
-		assert self.browser.is_element_present(*ProductPageLocators.BTN_BASKET), "Add to basket button is not presented"
+		assert self.is_element_present(*ProductPageLocators.BTN_BASKET), "Add to basket button is not presented"
 
 	def add_product_to_basket(self):
 		btn_basket = self.browser.find_element(*ProductPageLocators.BTN_BASKET)
