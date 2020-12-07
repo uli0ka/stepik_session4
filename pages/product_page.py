@@ -2,12 +2,12 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
-	def should_be_button_add_to_basket(self):
-		assert self.is_element_present(*ProductPageLocators.BTN_BASKET), "Add to basket button is not presented"
-
 	def add_product_to_basket(self):
 		btn_basket = self.browser.find_element(*ProductPageLocators.BTN_BASKET)
 		btn_basket.click()
+
+	def should_be_button_add_to_basket(self):
+		assert self.is_element_present(*ProductPageLocators.BTN_BASKET), "Add to basket button is not presented"
 
 	def should_be_name_product_matches_product_in_basket(self):
 		product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
